@@ -1,31 +1,47 @@
-import { useState } from 'react';
-import { bitcoin_stamps_backend } from 'declarations/bitcoin_stamps_backend';
+import { ChakraProvider } from "@chakra-ui/react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom"; // Import createBrowserRouter and RouterProvider
+// import React from 'react';
+import Landing from "./components/Landing";
+import Upload from "./components/Upload";
+import SidebarWithHeader from "./Sidebar";
+import Timelist from "./components/Timelist";
+import AboutUs from "./components/AboutUs";
 
-function App() {
-  const [greeting, setGreeting] = useState('');
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    bitcoin_stamps_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Landing />, // Route for the Landing page
+  },
+  {
+    path: "/upload",
+    element: <Upload />, // Route for the Landing page
+  },
+  {
+    path: "/sidebar",
+    element: <SidebarWithHeader />, // Route for the Landing page
+  },
+  {
+    path: "/timelist",
+    element: <Timelist />, // Route for the Landing page
+  },
+  {
+    path: "/about",
+    element: <AboutUs />, // Route for the Landing page
+  },
+  
 
+]);
+
+const App = () => {
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+    <ChakraProvider>
+      {/* <AuthProvider> */}
+        <RouterProvider router={router} />{" "}
+        {/* Use RouterProvider with the created router */}
+      {/* </AuthProvider> */}
+    </ChakraProvider>
   );
 }
 
-export default App;
+export default App

@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Keyframe animation for the slider effect */
+@keyframes windshieldEffect {
+    0% {
+      transform: translateX(-100%);  /* Start from the left */
+    }
+    50% {
+      transform: translateX(100%);   /* Move to the right */
+    }
+    100% {
+      transform: translateX(-100%);  /* Go back to the left */
+    }
+  }
+  
+  .animate-windshield {
+    animation: windshieldEffect 4s ease-in-out infinite;
+  }
+  
+  /* Keyframe animation for the blinking seal */
+  @keyframes blinkEffect {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .animate-blink {
+    animation: blinkEffect 1.5s infinite ease-in-out;
+  }
+  
+
+
+
+@keyframes stampMove {
+  0% {
+    transform: translateY(0); /* Start at normal position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up */
+  }
+  100% {
+    transform: translateY(0); /* Return to normal position */
+  }
+}
+
+.animate-stampMove {
+  animation: stampMove 2s ease-in-out infinite; /* Apply the animation */
+}
+
+
