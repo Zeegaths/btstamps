@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "bitcoin_stamps_backend": {
+      "main": "src/bitcoin_stamps_backend/main.mo",
+      "type": "motoko"
+    },
+    "bitcoin_stamps_frontend": {
+      "dependencies": [
+        "bitcoin_stamps_backend"
+      ],
+      "source": [
+        "src/bitcoin_stamps_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "bitcoin_stamps_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
