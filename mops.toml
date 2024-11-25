@@ -1,0 +1,5 @@
+[dependencies]
+base = "0.13.3"
+bitcoin = "0.1.0"
+vector = "0.4.1"
+map = "9.0.1"

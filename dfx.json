@@ -1,10 +1,10 @@
 {
   "canisters": {
-    "bitcoin_stamps_backend": {
-      "main": "src/bitcoin_stamps_backend/main.mo",
+    "backend": {
+      "main": "src/bitcoin_stamps_backend/Main.mo",
       "type": "motoko"
     },
-    "bitcoin_stamps_frontend": {
+    "frontend": {
       "dependencies": [
         "bitcoin_stamps_backend"
       ],
@@ -13,14 +13,30 @@
       ],
       "type": "assets",
       "workspace": "bitcoin_stamps_frontend"
+    },
+    "internet-identity": {
+      "type": "pull",
+      "id": "rdmx6-jaaaa-aaaaa-aaadq-cai"
     }
   },
   "defaults": {
+    "bitcoin": {
+      "enabled": true,
+      "nodes": [
+        "127.0.0.1:18444"
+      ],
+      "log_level": "info"
+    },
     "build": {
       "args": "",
-      "packtool": ""
+      "packtool": "mops sources"
     }
   },
   "output_env_file": ".env",
-  "version": 1
+  "version": 1,
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:4943"
+    }
+  }
 }
