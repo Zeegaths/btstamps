@@ -6,7 +6,7 @@
     },
     "frontend": {
       "dependencies": [
-        "bitcoin_stamps_backend"
+        "backend"
       ],
       "source": [
         "src/bitcoin_stamps_frontend/dist"

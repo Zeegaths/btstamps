@@ -42,8 +42,8 @@ const LinkItems = [
   { name: "Home", icon: FiHome, path: "/" },
   { name: "Create", icon: FaPlus, path: "/upload" },
   { name: "My Timestamps", icon: IoMdClock, path: "/timelist" },
-  { name: "Favourites", icon: FiStar, path: "/favourites" },
-  { name: "Settings", icon: FiSettings, path: "/settings" },
+  // { name: "Favourites", icon: FiStar, path: "/favourites" },
+  // { name: "Settings", icon: FiSettings, path: "/settings" },
 ];
 
 const SidebarContent = ({ onClose, ...rest }) => {
