@@ -3,7 +3,16 @@ import SidebarWithHeader from "../Sidebar";
 import "../index.css";
 import { useAuthClient } from "../use-auth-client";
 import { createBackendActor, createClient } from "../helper/auth";
-import { Box, Button, Card, CardBody, CardFooter, CardHeader, Spinner, useToast } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Spinner,
+  useToast,
+} from "@chakra-ui/react";
 import { useAuth } from "../lib/AuthContext";
 
 const Timelist = () => {
@@ -16,7 +25,8 @@ const Timelist = () => {
   const fetchTimestamps = useCallback(async () => {
     setIsLoading(true);
     try {
-      const actor = await createBackendActor(identity);
+      const authClient = await createClient();
+      const actor = await createBackendActor(authClient.getIdentity());
       const response = await actor.get_timestamps();
       setIsLoading(false);
       setTimestamps(response);
@@ -68,7 +78,7 @@ const Timelist = () => {
             <div className="flex flex-wrap justify-center gap-8">
               {timestamps.map((timestamp, index) => (
                 <Box key={index}>
-                  <Card rounded='md' overflow={'hidden'}>
+                  <Card rounded="md" overflow={"hidden"}>
                     <CardHeader bg={"ButtonFace"}>
                       <h3 className="text-xl mb-2">{timestamp.name}</h3>
                     </CardHeader>
@@ -78,18 +88,24 @@ const Timelist = () => {
                           parseInt(timestamp.time) / 1000000
                         ).toDateString()}
                       </p>
-                      <p className="text-lg text-black">TxID: {timestamp.txid.slice(0, 20)}...</p>
+                      <p className="text-lg text-black">
+                        TxID: {timestamp.txid.slice(0, 20)}...
+                      </p>
                     </CardBody>
-                    <CardFooter bg={'blackAlpha.100'}>
-                      <Button colorScheme="blue" size="sm" onClick={() => {
-                        navigator.clipboard.writeText(timestamp.txid);
-                        toast({
-                          title: "Copied!",
-                          status: "success",
-                          duration: 2000,
-                          isClosable: true,
-                        });
-                      }}>
+                    <CardFooter bg={"blackAlpha.100"}>
+                      <Button
+                        colorScheme="blue"
+                        size="sm"
+                        onClick={() => {
+                          navigator.clipboard.writeText(timestamp.txid);
+                          toast({
+                            title: "Copied!",
+                            status: "success",
+                            duration: 2000,
+                            isClosable: true,
+                          });
+                        }}
+                      >
                         Copy TxID
                       </Button>
                     </CardFooter>
