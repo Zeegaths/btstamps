@@ -2,6 +2,8 @@
 
 Welcome to the Btstamp dApp! This innovative decentralized application harnesses the power of blockchain technology to provide secure, immutable, and transparent timestamping for digital documents. Whether you’re a legal professional, a business owner, or anyone in need of reliable document verification, our dApp is designed to meet your needs.
 
+Check it out [LIVE](https://hq7kf-xqaaa-aaaak-ao6va-cai.icp0.io/)
+
 ## Key Features
 
 - Secure Timestamping: Leverage the unassailable security of Bitcoin’s blockchain to timestamp your documents, ensuring their integrity and authenticity.
